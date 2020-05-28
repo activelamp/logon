@@ -1,0 +1,18 @@
+<p>An email alias will allow you to set up a new email address that will deliver to your @ucla.edu email address that is setup for your account.</p>
+
+<form action="/mailprefs.php" method="post" data-abide novalidate>
+  {{> bol-alias-email-form-items }}
+
+
+  {{#unlesspage 'manage-bol-custom'}}
+  <button id="verify-alias" class="primary-button" type="submit" name="action">Add new email alias</button>  <button class="button" type="submit">Cancel</button>
+  {{/unlesspage}}
+
+  {{#ifpage 'manage-bol-custom'}}
+  <button id="verify-alias" class="primary-button" type="submit" name="action">Delete old alias and add new email alias</button>  <button class="button" type="submit">Cancel</button>
+  <p>Note: Adding a new email alias will delete your previous one.</p>
+  <span class="line-thru">or</span>
+
+  <button id="disable" class="button cancel-button" type="submit" name="action">Delete my email alias</button>
+  {{/ifpage}}
+</form>
